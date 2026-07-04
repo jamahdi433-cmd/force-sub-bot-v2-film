@@ -3,11 +3,9 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
 BOT_TOKEN = os.getenv("8914306340:AAFpHy9xYEik5TCyn721iEq7Xc4uW1_VkCI")
-CHANNEL = os.getenv("https://t.me/configkarmania")
+CHANNEL = "configkarmania"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_id = update.effective_user.id
-
     keyboard = [
         [InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CHANNEL}")],
         [InlineKeyboardButton("✅ Check Join", callback_data="check")]
@@ -37,5 +35,5 @@ def main():
 
     app.run_polling()
 
-if name == "main":
+if __name__ == "__main__":
     main()
